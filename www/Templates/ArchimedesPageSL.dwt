@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title></title>
+<!-- TemplateEndEditable -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.1.1.min.css">
+		<link rel="stylesheet" href="themes/Aversi.min.css" />
+        <link rel="stylesheet" href="css/my.css" />
+        <link rel="stylesheet" type="text/css" href="css/wissol.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="js/my.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/archimedes.js"></script>
+        <script src="js/pages.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script type="text/javascript">
+			var myScroll;
+			function loaded() {
+				setTimeout(function () {
+					myScroll = new iScroll('wrapper');
+				}, 100);
+			}
+			window.addEventListener('load', loaded, false);
+			
+		</script>
+        
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+<body onload="onLoad()">
+        <!-- Home -->
+        <div data-role="page" id="index" >
+            <div data-theme="a" data-role="header"  class="linear_top" data-position="fixed">
+				<div style=" text-align:left; margin-top:2px; margin-left:2px; padding:0px"><a href="index.html"><img id="headerimage" src="img/Logos/wissols.png" width="180" height="30"></a>
+                
+                	
+            	</div>
+            </div>
+            <div data-role="content" style="padding: 15px">
+				<div id="wrapper">
+					<div id="scroller">
+
+			<!-- TemplateBeginEditable name="Content" -->Content<!-- TemplateEndEditable -->
+            		</div>
+            	</div>
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+			$(document).bind("mobileinit", function() {
+				 $.support.touchOverflow = true;
+				 $('[data-position=fixed]').fixedtoolbar({ tapToggle:false});
+				  $.mobile.touchOverflowEnabled = true;
+				  $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+			});
+			
+			$('#index').live('pageinit', function (event, ui) {
+				//load_page(1);
+				var scrsize = getscreensize();
+				$("#tablenavmenu").attr("height", (scrsize.winH-148));
+            });
+        </script>
+    </body>
+</html>

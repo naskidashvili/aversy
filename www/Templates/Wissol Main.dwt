@@ -1,0 +1,88 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title></title>
+<!-- TemplateEndEditable -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.1.1.min.css">
+		<link rel="stylesheet" href="themes/Aversi.min.css" />
+        <link rel="stylesheet" href="css/my.css" />
+        <link rel="stylesheet" type="text/css" href="css/wissol.css">
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="js/my.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/archimedes.js"></script>
+        <script src="js/pages.js"></script>
+        <script src="js/iscroll.js"></script>
+        <script type="text/javascript">
+			var myScroll;
+			function loaded() {
+				setTimeout(function () {
+					myScroll = new iScroll('wrapper');
+				}, 100);
+				$("#test").hide();
+			}
+			window.addEventListener('load', loaded, false);
+		</script>
+        
+<!-- TemplateBeginEditable name="head" -->
+
+<!-- TemplateEndEditable -->
+</head>
+<body onload="onLoad()">
+        <!-- Home -->
+        
+        <div data-role="page" id="main_menu" >
+            <div data-theme="b" data-role="header" data-position="fixed" class="linear_top">
+				<div style=" text-align:center; margin:0px; padding:0px"><!-- TemplateBeginEditable name="Logo" --><img id="headerimage" src="img/Logos/1.png" width="300" height="60"><!-- TemplateEndEditable -->
+                
+                	
+            	</div>
+            </div>
+            <div data-role="content" data-theme="c" style="padding: 15px">
+
+
+
+			<!-- TemplateBeginEditable name="Content" -->Content<!-- TemplateEndEditable -->
+
+                    <div id="Loader" style="display:none; top:50%; left:50%; width:100px; height:100px; margin-left:-50px; margin-top:-50px; background:#FFFFFF; border:thin #036; position:absolute;-moz-border-radius: 15px;border-radius: 15px; z-index:999;">
+                    	<img src="img/icon/loader.gif" />
+                    </div>
+            </div>
+            <!-- TemplateBeginEditable name="Footer" -->Content<!-- TemplateEndEditable -->
+        </div>
+        <script>
+			function loadAnimation () {
+				$.mobile.showPageLoadingMsg();
+				$('#ani-element').stop().animate({
+					WebKitTransform : 'scale(3)'
+				}, 500, function () {
+					$.mobile.hidePageLoadingMsg();
+				});
+			}
+            //App custom javascript
+			$(document).bind("mobileinit", function() {
+				 $.support.touchOverflow = true;
+				 $('[data-position=fixed]').fixedtoolbar({ tapToggle:false});
+				  $.mobile.touchOverflowEnabled = true;
+				  $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+	
+			});
+			$(document).bind("pageinit", function() {
+				loadAnimation();
+			});
+			
+			$('#index').live('pageinit', function (event, ui) {
+				//load_page(1);
+				var scrsize = getscreensize();
+				$("#tablenavmenu").attr("height", (scrsize.winH-148));
+            });
+			$( '#index' ).live( 'pageshow',function(event, ui){
+  				$('#Loader').hide();
+}); 
+        </script>
+    </body>
+</html>

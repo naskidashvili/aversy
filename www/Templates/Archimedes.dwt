@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- TemplateBeginEditable name="doctitle" -->
+        <title>
+        </title>
+        <!-- TemplateEndEditable -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.min.css">
+        <link rel="stylesheet" href="css/my.css" />
+        <link rel="stylesheet" type="text/css" href="css/archimedes.css">
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="js/my.js"></script>
+        <script src="cordova.js"></script>
+        <script src="js/archimedes.js"></script>
+        <script src="js/pages.js"></script>
+    </head>
+<body onload="onLoad()">
+        <!-- Home -->
+<div data-role="page" id="index">
+            <div data-theme="c" data-role="header" data-position="fixed">
+			<!-- TemplateBeginEditable name="TopImage" -->
+            
+                <div style=" text-align:center">
+                	<img id="headerimage" src="images/Logos/1.png" width="300" height="60">
+                	<hr>
+                <!-- TemplateEndEditable -->
+           	  </div>
+          </div>
+            <div data-role="content"><!-- TemplateBeginEditable name="Content" -->Content<!-- TemplateEndEditable -->
+
+        </div>
+            <div id="link_menu" class="link_menu" onclick="hide_menu();" >
+              <div data-role="navbar" data-theme="c">
+                    <ul>
+                        <li><a href="https://twitter.com/#!/Archimedesge" rel="external"><img src="images/Buttons/icon_twitter.png" width="30" height="30" /></a></li>
+                        <li><a href="http://www.youtube.com/user/archimedesge?feature=mhee" rel="external"><img src="images/Buttons/icon_youtube.png" width="30" height="30" /></a></li>
+                        <li><a href="https://www.facebook.com/ArchimedesGlobalGeorgia" rel="external"><img src="images/Buttons/icon_facebook.png" width="30" height="30" /></a></li>
+                        <li><a href="#" onclick="hide_menu();"><img src="images/Buttons/icon_close.png" width="30" height="30" /></a></li>
+                    </ul>
+                </div>
+            </div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" onclick="load_page(5);"><img src="images/Buttons/icon_key.png" width="30" height="30" /></a></li>
+                        <li><a href="tel:+000-0000000"><img src="images/Buttons/icon_call.png" width="30" height="30" /></a></li>
+                        <li><a href="mailto:info@archimedes.ge" ><img src="images/Buttons/icon_mail.png" width="30" height="30" /></a></li>
+                        <li><a href="#"  onclick="show_menu();" ><img src="images/Buttons/icon_link.png" width="30" height="30" /></a></li>
+                        <li><a href="#" id="mainmenu" onclick="go_back();"><img src="images/Buttons/icon_menu.png" width="30" height="30" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<script>
+            //App custom javascript
+			$('#index').live('pageinit', function (event, ui) {
+				//load_page(1);
+				var scrsize = getscreensize();
+				$("#tablemenu").attr("height", (scrsize.winH-148));
+            });
+        </script>
+</body>
+</html>
